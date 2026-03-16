@@ -26,15 +26,18 @@ pipeline {
             }
         }
 
-        stage('Publish Report') {
-            steps {
-                publishHTML([
-                    reportDir: 'playwright-report',
-                    reportFiles: 'index.html',
-                    reportName: 'Playwright Report'
-                ])
-            }
-        }
+    stage('Publish Report') {
+        steps {
+            publishHTML(target: [
+                reportDir: 'playwright-report',
+                reportFiles: 'index.html',
+                reportName: 'Playwright Report',
+                keepAll: true,
+                alwaysLinkToLastBuild: true,
+                allowMissing: false
+        ])
+    }
+}
 
     }
 }
