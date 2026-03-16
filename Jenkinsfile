@@ -8,33 +8,27 @@ pipeline {
 
     stages {
 
-        stage('Clone Repository') {
-            steps {
-                git 'https://github.com/Kulshanperera/playwright-automation-framework.git'
-            }
-        }
-
         stage('Install Dependencies') {
             steps {
-                sh 'npm install'
+                bat 'npm ci'
             }
         }
 
         stage('Install Playwright Browsers') {
             steps {
-                sh 'npx playwright install'
+                bat 'npx playwright install'
             }
         }
 
         stage('Run Tests') {
             steps {
-                sh 'npx playwright test'
+                bat 'npx playwright test'
             }
         }
 
         stage('Generate Report') {
             steps {
-                sh 'npx playwright show-report'
+                bat 'npx playwright show-report'
             }
         }
 
