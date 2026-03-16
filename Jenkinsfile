@@ -10,7 +10,7 @@ pipeline {
 
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/username/playwright-jenkins-ci.git'
+                git 'https://github.com/Kulshanperera/playwright-automation-framework.git'
             }
         }
 
