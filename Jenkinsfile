@@ -26,9 +26,13 @@ pipeline {
             }
         }
 
-        stage('Generate Report') {
+        stage('Publish Report') {
             steps {
-                bat 'npx playwright show-report'
+                publishHTML([
+                    reportDir: 'playwright-report',
+                    reportFiles: 'index.html',
+                    reportName: 'Playwright Report'
+                ])
             }
         }
 
