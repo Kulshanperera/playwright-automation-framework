@@ -11,8 +11,4 @@ export class MainPage {
     async navigateTo(url: string) {
         await this.page.goto(url);
     }
-
-    async fillText(locator: Locator, text: string) {
-        await locator.fill(text);
-    }
 }
