@@ -1,6 +1,6 @@
 # DemoBlaze Playwright POM Project
 
-This project automates testing for the [DemoBlaze](https://demoblaze.com/index.html) website using **Playwright** with the **Page Object Model (POM)** design pattern. The CI/CD pipeline is automated using **Jenkins** and integrated with **GitHub Actions** for seamless workflow execution.
+This project automates testing for the [Demo Web Shop](https://demowebshop.tricentis.com/) website using **Playwright** with the **Page Object Model (POM)** design pattern. The CI/CD pipeline is automated using **Jenkins** and integrated with **GitHub Actions** for seamless workflow execution.
 
 ---
 
@@ -51,4 +51,9 @@ This project automates testing for the [DemoBlaze](https://demoblaze.com/index.h
    npx playwright test
    npx playwright show-report
 
+2. Run the test:
+npx playwright test --project=chromium --grep="@regression" --headed
+
+3. Set environment:
+set TEST_ENV=dev or  set TEST_ENV=qa 
 

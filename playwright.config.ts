@@ -1,4 +1,10 @@
 import { defineConfig, devices } from '@playwright/test';
+import * as dotenv from 'dotenv';
+
+// Load .env variables
+const env = process.env.TEST_ENV || 'qa';
+dotenv.config({path:`.env.${env}` });
+console.log(`BASE_URL loaded:`, process.env.BASE_URL);  // Debug line
 
 export default defineConfig({
   testDir: './tests',
@@ -9,17 +15,17 @@ export default defineConfig({
 
   retries: process.env.CI ? 2 : 0,
 
-  workers: process.env.CI ? 1 : undefined,
+  workers: process.env.CI ? 1 : 2,
 
   reporter: [['html', { outputFolder: 'playwright-report', open: 'never' }]],
 
   timeout: 60000,
-  globalTimeout: 10000,
+  globalTimeout: 20000,
   expect: {
     timeout: 15000, // 15 seconds default for all assertions
   },
   use: {
-
+    baseURL: process.env.BASE_URL,
     trace: 'on-first-retry',
   },
 
